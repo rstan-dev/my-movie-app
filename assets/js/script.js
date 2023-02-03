@@ -11,6 +11,8 @@ const form = document.getElementById('form');
 
 const search = document.getElementById('search');
 
+const main = document.getElementById('main');
+
 // Get initial movies ---------------------->
 
 getMovies(API_URL)
@@ -19,11 +21,66 @@ async function getMovies(url) {
     const res = await fetch(url);
     const data = await res.json();
 
+    showMovies(data.results);
+
     console.log(data.results);
 } // makes a request. They return a promise that resolves with the result of the asynchronous operation.  use the await keyword inside an async function to wait for a promise to resolve and get its result. The code inside the async function will pause until the promise is resolved and then continue.
 
+
+function showMovies(movies) {
+    main.innerHTML = '';
+    movies.forEach((movie) => {
+        const {
+            title,
+            poster_path,
+            vote_average,
+            overview
+        } = movie;
+
+        // Destructuring (above const) in JavaScript is a convenient way to extract values from arrays or objects into separate variables. It allows you to unpack values from arrays, objects or maps into distinct variables. better than const = movie.title.... movie.poster_path etc)
+
+
+        //recreate the div html
+        const movieElement = document.createElement('div');
+
+        movieElement.classList.add('movie');
+
+        movieElement.innerHTML = `
+            <img src="${IMG_PATH + poster_path}"
+                alt="${title}">
+            <div class="movie-info">
+                <h3>${title}</h3>
+                <span class="${getClassByRate(vote_average)}">${vote_average}</span>
+            </div>
+            <div class="overview">
+                <h3>Overview</h3>
+                ${overview}
+            </div>
+            `;
+
+    });
+};
+
+
+// creates the Green, Orange & Red classes
+function getClassByRate(vote) {
+    if (vote >= 8) {
+        return 'green';
+    } else if (vote >= 5) {
+        return 'orange';
+    } else {
+        return 'red';
+    }
+};
+
+
+
+
+
+
 form.addEventListener('submit', (e) => {
-    e.preventDefault(); //listens for the submit event, then prevents the event from submitting it as per the defualt action
+    e.preventDefault();
+    //listens for the submit event, then prevents the event from submitting it as per the defualt action
 
     const searchTerm = search.value;
 
@@ -38,3 +95,6 @@ form.addEventListener('submit', (e) => {
     }
 
 });
+
+// Adding the api data to the DOM
+// create the showMovies()
