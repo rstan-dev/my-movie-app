@@ -2,7 +2,7 @@
 
 ## Project Screenshot
 
-<img src="/workspace/my-movie-app/assets/images/Final Screen Shotjpg.jpg">
+<img src="/workspace/my-movie-app/assets/images/Final Screen Shotjpg2.jpg">
 
 ## Link to Final Site
 * [Link to Deployed Project](https://rstan-dev.github.io/my-movie-app/)
