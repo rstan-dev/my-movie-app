@@ -57,6 +57,7 @@ function showMovies(movies) {
                 ${overview}
             </div>
             `;
+        main.appendChild(movieElement);
 
     });
 };

@@ -1,17 +1,15 @@
-# Walkthrough Project ReadMe template
-
-# Project name
+# Movie App
 
 ## Project Screenshot
 
-<img src="">
+<img src="/workspace/my-movie-app/assets/images/Final Screen Shotjpg.jpg">
 
 ## Link to Final Site
 * [Link to Deployed Project](https://rstan-dev.github.io/my-movie-app/)
 * Gitpod: use `python -m http.server` to preview in server
 
 ## Purpose
-* 
+* To learn how to import movie info using an API and update the DOM using javascript functions
 
 ## Credits
 * API courtesy from [TMDP](https://www.themoviedb.org/documentation/api)
